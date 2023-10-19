@@ -1,6 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using StudiStayAPI.Rooms.Domain.Repositories;
+using StudiStayAPI.Rooms.Domain.Services;
 using StudiStayAPI.Rooms.Mapping;
+using StudiStayAPI.Rooms.Services;
 using StudiStayAPI.Shared.Persistence.Contexts;
+using StudiStayAPI.Shared.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +21,13 @@ builder.Services.AddDbContext<AppDbContext>(
         .EnableSensitiveDataLogging()
         .EnableDetailedErrors()
 );
+
+// Dependency Injection Configuration
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IPostRepository, PostRepository>();
+builder.Services.AddScoped<IPostService, PostService>();
 
 // Add lowercase routes
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
