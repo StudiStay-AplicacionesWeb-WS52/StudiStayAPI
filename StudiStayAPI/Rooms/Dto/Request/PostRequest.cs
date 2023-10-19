@@ -28,6 +28,9 @@ public class PostRequest
     [Required]
     public string NearestUniversity { get; set; }
     
+    [Required] 
+    public string ImageUrl { get; set; }
+    
     [Required]
     public int UserId { get; set; }
 }

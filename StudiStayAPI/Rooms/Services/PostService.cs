@@ -79,6 +79,7 @@ public class PostService : IPostService
         existingPost.Address = post.Address ?? existingPost.Address;
         existingPost.NearestUniversity = post.NearestUniversity ?? existingPost.NearestUniversity;
         existingPost.Rating = post.Rating;
+        existingPost.ImageUrl = post.ImageUrl ?? existingPost.ImageUrl;
 
         try
         {

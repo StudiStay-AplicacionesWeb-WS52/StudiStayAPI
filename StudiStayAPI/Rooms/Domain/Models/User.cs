@@ -10,6 +10,8 @@ public class User
     public string Email { get; set; }
     public string Password { get; set; }
     public string Phone { get; set; }
+    public string ImageUrl { get; set; }
+    public string Role { get; set; }
     
     //relaciones
     public IList<Post> Posts { get; set; } = new List<Post>();
