@@ -26,5 +26,5 @@ public class UserRequest
     [Required]
     public string Role { get; set; }
     
-    public string ImageUrl { get; set; }
+    public string? ImageUrl { get; set; }
 }
