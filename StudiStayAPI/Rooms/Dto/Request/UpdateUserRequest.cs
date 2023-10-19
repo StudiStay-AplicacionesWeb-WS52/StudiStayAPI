@@ -18,4 +18,5 @@ public class UpdateUserRequest
     public string? Password { get; set; }
     
     public string? Phone { get; set; }
+    public string? ImageUrl { get; set; }
 }

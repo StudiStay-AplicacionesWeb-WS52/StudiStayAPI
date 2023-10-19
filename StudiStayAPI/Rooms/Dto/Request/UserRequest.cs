@@ -20,5 +20,11 @@ public class UserRequest
     [MaxLength(20)]
     public string Password { get; set; }
     
+    [Required]
     public string Phone { get; set; }
+  
+    [Required]
+    public string Role { get; set; }
+    
+    public string ImageUrl { get; set; }
 }

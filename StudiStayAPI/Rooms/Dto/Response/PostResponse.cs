@@ -12,5 +12,6 @@ public class PostResponse
     public float Price { get; set; }
     public float Rating { get; set; }
     public string NearestUniversity { get; set; }
+    public string ImageUrl { get; set; }
     public UserResponse User { get; set; }
 }

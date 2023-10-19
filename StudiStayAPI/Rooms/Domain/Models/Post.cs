@@ -12,6 +12,7 @@ public class Post
     public float Price { get; set; }
     public float Rating { get; set; }
     public string NearestUniversity { get; set; }
+    public string ImageUrl { get; set; }
     
     //relaciones
     public int UserId { get; set; }

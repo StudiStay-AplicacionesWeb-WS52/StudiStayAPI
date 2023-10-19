@@ -50,6 +50,8 @@ public class UserService : IUserService
         existingUser.Email = user.Email ?? existingUser.Email;
         existingUser.Password = user.Password ?? existingUser.Password;
         existingUser.Phone = user.Phone ?? existingUser.Phone;
+        existingUser.Role = user.Role ?? existingUser.Role;
+        existingUser.ImageUrl = user.ImageUrl ?? existingUser.ImageUrl;
         
         try
         {
