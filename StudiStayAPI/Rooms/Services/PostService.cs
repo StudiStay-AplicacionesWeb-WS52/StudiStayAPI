@@ -73,11 +73,11 @@ public class PostService : IPostService
             return new PostApiResponse("Post title already exists.");
         
         //modifica el post
-        existingPost.Title = post.Title;
-        existingPost.Description = post.Description;
+        existingPost.Title = post.Title ?? existingPost.Title;
+        existingPost.Description = post.Description ?? existingPost.Description;
         existingPost.Price = post.Price;
-        existingPost.Address = post.Address;
-        existingPost.NearestUniversity = post.NearestUniversity;
+        existingPost.Address = post.Address ?? existingPost.Address;
+        existingPost.NearestUniversity = post.NearestUniversity ?? existingPost.NearestUniversity;
         existingPost.Rating = post.Rating;
 
         try

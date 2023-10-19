@@ -45,6 +45,12 @@ public class UserService : IUserService
         if (existingUser == null)
             return new UserApiResponse("User not found.");
         
+        //modifica los campos del usuario (solo los que no son nulos)
+        existingUser.FullName = user.FullName ?? existingUser.FullName;
+        existingUser.Email = user.Email ?? existingUser.Email;
+        existingUser.Password = user.Password ?? existingUser.Password;
+        existingUser.Phone = user.Phone ?? existingUser.Phone;
+        
         try
         {
             userRepository.Update(existingUser);
