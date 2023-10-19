@@ -16,9 +16,9 @@ builder.Services.AddSwaggerGen();
 // Add Database Connection
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(
-    options => options.UseMySQL(connectionString)
+    options => options.UseNpgsql(connectionString)
         .LogTo(Console.WriteLine, LogLevel.Information)
-        .EnableSensitiveDataLogging()
+        // .EnableSensitiveDataLogging()
         .EnableDetailedErrors()
 );
 
@@ -54,7 +54,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection(); -> se estara usando nginx para el proxy reverso
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
