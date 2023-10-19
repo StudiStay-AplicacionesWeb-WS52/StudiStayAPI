@@ -56,11 +56,11 @@ public class UserController : ControllerBase
 
     //endpoint para actualizar un usuario
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutAsync(int id, [FromBody] UserRequest request)
+    public async Task<IActionResult> PutAsync(int id, [FromBody] UpdateUserRequest request)
     {
         if (!ModelState.IsValid) return BadRequest(ModelState.GetErrorMessages());
  
-        var user = mapper.Map<UserRequest, User>(request);
+        var user = mapper.Map<UpdateUserRequest, User>(request);
         var result = await userService.UpdateAsync(id, user);
  
         if (!result.Success) return BadRequest(result.Message);

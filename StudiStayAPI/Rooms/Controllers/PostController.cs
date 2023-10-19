@@ -47,11 +47,11 @@ public class PostController : ControllerBase
 
     //endpoint para actualizar un post
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutAsync(int id, [FromBody] PostRequest request)
+    public async Task<IActionResult> PutAsync(int id, [FromBody] UpdatePostRequest request)
     {
         if (!ModelState.IsValid) return BadRequest(ModelState.GetErrorMessages());
         
-        var post = mapper.Map<PostRequest, Post>(request);
+        var post = mapper.Map<UpdatePostRequest, Post>(request);
         var result = await postService.UpdateAsync(id, post);
         
         if (!result.Success) return BadRequest(result.Message);
