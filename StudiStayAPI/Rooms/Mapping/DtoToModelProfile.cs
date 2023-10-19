@@ -13,7 +13,9 @@ public class DtoToModelProfile : Profile
     {
         //mapeo de Dto a Entidad para User
         CreateMap<UserRequest, User>();
+        CreateMap<UpdateUserRequest, User>();
         //mapeo de Dto a Entidad para Post
         CreateMap<PostRequest, Post>();
+        CreateMap<UpdatePostRequest, Post>();
     }
 }
