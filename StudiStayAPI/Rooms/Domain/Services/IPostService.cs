@@ -14,6 +14,12 @@ public interface IPostService
     Task<IEnumerable<Post>> ListAsync();
     
     /// <summary>
+    /// Obtiene un post por id
+    /// </summary>
+    /// <param name="postId">Id del post</param>
+    Task<PostApiResponse> GetByIdAsync(int postId);
+    
+    /// <summary>
     /// Obtiene todos los posts de un usuario
     /// </summary>
     /// <param name="userId">Id del usuario</param>
