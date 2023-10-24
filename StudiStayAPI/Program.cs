@@ -38,6 +38,18 @@ builder.Services.AddAutoMapper(
     typeof(DtoToModelProfile)
 );
 
+// CORS Configuration
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigins", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:5173", "http://localhost:5174", "https://studistay-app.vercel.app/")
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 // Validation for ensuring Database Objects are created
@@ -54,6 +66,7 @@ using (var context = scope.ServiceProvider.GetService<AppDbContext>())
     app.UseSwaggerUI();
 // }
 
+app.UseCors();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
