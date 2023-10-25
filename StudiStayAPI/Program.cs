@@ -44,7 +44,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowSpecificOrigins", policy =>
     {
         policy
-            .WithOrigins("http://localhost:5173", "http://localhost:5174", "https://studistay-app.vercel.app/")
+            .WithOrigins("http://localhost:5173", "http://localhost:5174", "https://studistay-app.vercel.app")
             .AllowAnyMethod()
             .AllowAnyHeader();
     });
@@ -66,7 +66,7 @@ using (var context = scope.ServiceProvider.GetService<AppDbContext>())
     app.UseSwaggerUI();
 // }
 
-app.UseCors();
+app.UseCors("AllowSpecificOrigins");
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
