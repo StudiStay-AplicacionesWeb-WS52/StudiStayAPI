@@ -15,5 +15,7 @@ public class ModelToDtoProfile : Profile
         CreateMap<User, UserResponse>();
         //mapeo de Entidad a Dto para Post
         CreateMap<Post, PostResponse>();
+        //mapeo de Entidad a Dto para University
+        CreateMap<University, UniversityResponse>();
     }
 }

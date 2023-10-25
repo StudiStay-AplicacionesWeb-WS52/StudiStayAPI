@@ -8,6 +8,7 @@ public class AppDbContext : DbContext
     //define las tablas de la base de datos
     public DbSet<User> Users { get; set; }
     public DbSet<Post> Posts { get; set; }
+    public DbSet<University> Universities { get; set; }
     
     public AppDbContext(DbContextOptions options) : base(options) {}
     

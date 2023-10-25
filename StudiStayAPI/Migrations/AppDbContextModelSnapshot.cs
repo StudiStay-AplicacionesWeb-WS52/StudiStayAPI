@@ -45,10 +45,10 @@ namespace StudiStayAPI.Migrations
                         .HasColumnType("text")
                         .HasColumnName("image_url");
 
-                    b.Property<string>("NearestUniversity")
+                    b.Property<string>("NearestUniversities")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("nearest_university");
+                        .HasColumnName("nearest_universities");
 
                     b.Property<float>("Price")
                         .HasColumnType("real")
@@ -74,6 +74,36 @@ namespace StudiStayAPI.Migrations
                         .HasDatabaseName("ix_posts_user_id");
 
                     b.ToTable("posts", (string)null);
+                });
+
+            modelBuilder.Entity("StudiStayAPI.Rooms.Domain.Models.University", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Initials")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("initials");
+
+                    b.Property<string>("LogoUrl")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("logo_url");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("name");
+
+                    b.HasKey("Id")
+                        .HasName("pk_universities");
+
+                    b.ToTable("universities", (string)null);
                 });
 
             modelBuilder.Entity("StudiStayAPI.Rooms.Domain.Models.User", b =>
