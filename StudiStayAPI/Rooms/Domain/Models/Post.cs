@@ -11,8 +11,8 @@ public class Post
     public string Address { get; set; }
     public float Price { get; set; }
     public float Rating { get; set; }
-    public string NearestUniversity { get; set; }
     public string ImageUrl { get; set; }
+    public string NearestUniversities { get; set; } //JSON
     
     //relaciones
     public int UserId { get; set; }
