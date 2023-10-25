@@ -26,6 +26,13 @@ public class PostService : IPostService
     {
         return await postRepository.ListAsync();
     }
+    
+    public async Task<PostApiResponse> GetByIdAsync(int postId)
+    {
+        var existingPost = await postRepository.FindByIdAsync(postId);
+        if (existingPost == null) return new PostApiResponse("Post not found.");
+        return new PostApiResponse(existingPost);
+    }
 
     public async Task<IEnumerable<Post>> ListByUserIdAsync(int userId)
     {

@@ -29,6 +29,18 @@ public class PostController : ControllerBase
         var posts = await postService.ListAsync();
         return mapper.Map<IEnumerable<Post>, IEnumerable<PostResponse>>(posts);
     }
+    
+    //endpoint para obtener un post por id
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetAsync(int id)
+    {
+        var result = await postService.GetByIdAsync(id);
+        
+        if (!result.Success) return NotFound(result.Message);
+        
+        var postResponse = mapper.Map<Post, PostResponse>(result.Resource);
+        return Ok(postResponse);
+    }
 
     //endpoint para crear un post
     [HttpPost]
