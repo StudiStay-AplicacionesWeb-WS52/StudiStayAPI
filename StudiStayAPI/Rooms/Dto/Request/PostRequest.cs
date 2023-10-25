@@ -25,12 +25,12 @@ public class PostRequest
     
     public float? Rating { get; set; }
     
-    [Required]
-    public string NearestUniversity { get; set; }
-    
     [Required] 
     public string ImageUrl { get; set; }
     
     [Required]
     public int UserId { get; set; }
+    
+    [Required]
+    public string NearestUniversities { get; set; }
 }

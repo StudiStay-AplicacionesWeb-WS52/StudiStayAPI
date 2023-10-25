@@ -21,10 +21,10 @@ public class UpdatePostRequest
     
     public float? Rating { get; set; }
     
-    public string? NearestUniversity { get; set; }
-    
     public string? ImageUrl { get; set; }
 
     [Required] //temporal (hasta que se implemente la autenticacion)
     public int UserId { get; set; }
+    
+    public string? NearestUniversities { get; set; }
 }
