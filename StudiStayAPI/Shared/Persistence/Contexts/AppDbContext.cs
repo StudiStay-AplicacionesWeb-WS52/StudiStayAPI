@@ -9,6 +9,7 @@ public class AppDbContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<Post> Posts { get; set; }
     public DbSet<University> Universities { get; set; }
+    public DbSet<Reservation> Reservations { get; set; }
     
     public AppDbContext(DbContextOptions options) : base(options) {}
     
