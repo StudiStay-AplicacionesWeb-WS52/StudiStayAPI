@@ -20,5 +20,8 @@ public class DtoToModelProfile : Profile
         //mapeo de Dto a Entidad para University
         CreateMap<UniversityRequest, University>();
         CreateMap<UpdateUniversityRequest, University>();
+        //mapeo de Dto a Entidad para Reservation
+        CreateMap<ReservationRequest, Reservation>();
+        CreateMap<UpdateReservationRequest, Reservation>();
     }
 }

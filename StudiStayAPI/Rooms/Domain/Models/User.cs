@@ -15,4 +15,5 @@ public class User
     
     //relaciones
     public IList<Post> Posts { get; set; } = new List<Post>();
+    public IList<Reservation> Reservations { get; set; } = new List<Reservation>();
 }
