@@ -40,6 +40,9 @@ public class ReservationService : IReservationService
 
     public async Task<ReservationApiResponse> SaveAsync(Reservation reservation)
     {
+        //valida si la fecha de checkin y checkout sea correcta
+        if (reservation.CheckInDate >= reservation.CheckOutDate) return new ReservationApiResponse("Invalid dates");
+        
         //valida el userId
         var existingUser = await userRepository.FindByIdAsync(reservation.UserId);
         if (existingUser == null) return new ReservationApiResponse("Invalid User");
@@ -70,6 +73,9 @@ public class ReservationService : IReservationService
 
     public async Task<ReservationApiResponse> UpdateAsync(int reservationId, Reservation reservation)
     {
+        //valida si la fecha de checkin y checkout sea correcta
+        if (reservation.CheckInDate >= reservation.CheckOutDate) return new ReservationApiResponse("Invalid dates");
+        
         //valida si existe la reserva
         var existingReservation = await reservationRepository.FindByIdAsync(reservationId);
         if (existingReservation == null) return new ReservationApiResponse("Reservation not found.");
