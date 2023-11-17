@@ -2,6 +2,7 @@
 using StudiStayAPI.Rooms.Domain.Repositories;
 using StudiStayAPI.Rooms.Domain.Services;
 using StudiStayAPI.Rooms.Domain.Services.Communication;
+using StudiStayAPI.Security.Domain.Repositories;
 
 namespace StudiStayAPI.Rooms.Services;
 

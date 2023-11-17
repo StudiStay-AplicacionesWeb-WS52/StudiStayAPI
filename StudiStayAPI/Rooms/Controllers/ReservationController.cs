@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StudiStayAPI.Rooms.Domain.Models;
 using StudiStayAPI.Rooms.Domain.Services;
@@ -8,6 +9,7 @@ using StudiStayAPI.Shared.Extensions;
 
 namespace StudiStayAPI.Rooms.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("/api/v1/[controller]")]
 public class ReservationController : ControllerBase

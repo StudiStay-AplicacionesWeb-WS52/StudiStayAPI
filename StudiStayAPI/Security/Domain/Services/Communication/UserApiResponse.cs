@@ -1,7 +1,7 @@
-﻿using StudiStayAPI.Rooms.Domain.Models;
+﻿using StudiStayAPI.Security.Domain.Models;
 using StudiStayAPI.Shared.Domain.Services.Communication;
 
-namespace StudiStayAPI.Rooms.Domain.Services.Communication;
+namespace StudiStayAPI.Security.Domain.Services.Communication;
 
 public class UserApiResponse : BaseApiResponse<User>
 {
