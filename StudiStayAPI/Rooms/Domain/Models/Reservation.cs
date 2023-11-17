@@ -1,4 +1,6 @@
-﻿namespace StudiStayAPI.Rooms.Domain.Models;
+﻿using StudiStayAPI.Security.Domain.Models;
+
+namespace StudiStayAPI.Rooms.Domain.Models;
 
 public class Reservation
 {

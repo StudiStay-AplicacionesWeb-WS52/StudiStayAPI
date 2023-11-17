@@ -1,6 +1,6 @@
-﻿using StudiStayAPI.Rooms.Domain.Models;
+﻿using StudiStayAPI.Security.Domain.Models;
 
-namespace StudiStayAPI.Rooms.Domain.Repositories;
+namespace StudiStayAPI.Security.Domain.Repositories;
 
 /// <summary>
 /// Define las operaciones CRUD para User
@@ -23,6 +23,24 @@ public interface IUserRepository
     /// </summary>
     /// <param name="id">Id del usuario a buscar</param>
     Task<User> FindByIdAsync(int id);
+    
+    /// <summary>
+    /// Encuentra un usuario por su email
+    /// </summary>
+    /// <param name="email">Email del usuario a buscar</param>
+    Task<User> FindByEmailAsync(string email);
+
+    /// <summary>
+    /// Verifica si existe un usuario con el email dado
+    /// </summary>
+    /// <param name="email">Email del usuario a buscar</param>
+    public bool ExistsByEmail(string email);
+    
+    /// <summary>
+    /// Encuentra un usuario por su id
+    /// </summary>
+    /// <param name="id">Id del usuario a buscar</param>
+    User FindById(int id);
     
     /// <summary>
     /// Actualiza un usuario

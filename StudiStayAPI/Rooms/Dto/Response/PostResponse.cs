@@ -1,4 +1,6 @@
-﻿namespace StudiStayAPI.Rooms.Dto.Response;
+﻿using StudiStayAPI.Security.Dto.Response;
+
+namespace StudiStayAPI.Rooms.Dto.Response;
 
 /// <summary>
 /// Clase que se usa para mapear el response del API (lo que se devuelve al cliente en formato JSON)

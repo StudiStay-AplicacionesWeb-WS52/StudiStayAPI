@@ -1,4 +1,6 @@
-﻿namespace StudiStayAPI.Rooms.Dto.Response;
+﻿using StudiStayAPI.Security.Dto.Response;
+
+namespace StudiStayAPI.Rooms.Dto.Response;
 
 public class ReservationResponse
 {
