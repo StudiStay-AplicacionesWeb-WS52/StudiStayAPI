@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StudiStayAPI.Rooms.Domain.Models;
 using StudiStayAPI.Rooms.Domain.Services;
@@ -6,6 +7,7 @@ using StudiStayAPI.Rooms.Dto.Response;
 
 namespace StudiStayAPI.Rooms.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("/api/v1/users/{userId}/posts")]
 public class UserPostController : ControllerBase
