@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StudiStayAPI.Rooms.Domain.Models;
+using StudiStayAPI.Security.Domain.Models;
 
 namespace StudiStayAPI.Shared.Persistence.Contexts;
 

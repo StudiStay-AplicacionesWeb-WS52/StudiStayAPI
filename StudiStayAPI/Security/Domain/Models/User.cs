@@ -1,4 +1,7 @@
-﻿namespace StudiStayAPI.Rooms.Domain.Models;
+﻿using System.Text.Json.Serialization;
+using StudiStayAPI.Rooms.Domain.Models;
+
+namespace StudiStayAPI.Security.Domain.Models;
 
 /// <summary>
 /// Entidad que representa a un usuario
@@ -8,6 +11,7 @@ public class User
     public int Id { get; set; }
     public string FullName { get; set; }
     public string Email { get; set; }
+    [JsonIgnore]
     public string Password { get; set; }
     public string Phone { get; set; }
     public string ImageUrl { get; set; }
