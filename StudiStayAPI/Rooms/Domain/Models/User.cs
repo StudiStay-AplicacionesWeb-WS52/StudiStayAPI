@@ -15,5 +15,7 @@ public class User
     
     //relaciones
     public IList<Post> Posts { get; set; } = new List<Post>();
+
+    // Eliminar esto
     public IList<Reservation> Reservations { get; set; } = new List<Reservation>();
 }

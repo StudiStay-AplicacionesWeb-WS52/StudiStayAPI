@@ -16,8 +16,8 @@ public class PostRequest
     [MaxLength(200)]
     public string Description { get; set; }
     
-    [Required]
-    public string Address { get; set; }
+    //[Required]
+    // public string Address { get; set; }
 
     [Required]
     [Range(3, 1000)]
@@ -31,6 +31,9 @@ public class PostRequest
     [Required]
     public int UserId { get; set; }
     
+    // [Required]
+    // public string NearestUniversities { get; set; }
+
     [Required]
-    public string NearestUniversities { get; set; }
-}
+    public int LocationId { get; set; }
+} 

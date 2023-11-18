@@ -15,11 +15,12 @@ public class PostService : IPostService
     private readonly IUnitOfWork unitOfWork;
     
     //inyeccion de dependencias
-    public PostService(IPostRepository postRepository, IUserRepository userRepository, IUnitOfWork unitOfWork)
+    public PostService(IPostRepository postRepository, IUserRepository userRepository, ILocationRepository locationRepository, IUnitOfWork unitOfWork)
     {
         this.postRepository = postRepository;
         this.userRepository = userRepository;
         this.unitOfWork = unitOfWork;
+        this.locationRepository = locationRepository
     }
     
     public async Task<IEnumerable<Post>> ListAsync()
