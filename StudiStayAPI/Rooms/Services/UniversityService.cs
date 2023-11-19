@@ -13,10 +13,11 @@ public class UniversityService : IUniversityService
     private readonly IUnitOfWork unitOfWork;
     
     //inyeccion de dependencias
-    public UniversityService(IUniversityRepository universityRepository, IUserRepository userRepository, IUnitOfWork unitOfWork)
+    public UniversityService(IUniversityRepository universityRepository, ILocationRepository locationRepository, IUserRepository userRepository, IUnitOfWork unitOfWork)
     {
         this.universityRepository = universityRepository;
         this.userRepository = userRepository;
+        this.locationRepository = locationRepository;
         this.unitOfWork = unitOfWork;
     }
     

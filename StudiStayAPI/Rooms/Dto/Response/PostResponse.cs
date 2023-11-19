@@ -10,10 +10,10 @@ public class PostResponse
     public int Id { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
-    public string Address { get; set; }
+    //  public string Address { get; set; }
     public float Price { get; set; }
-    public float Rating { get; set; }
+    //  public float Rating { get; set; }
     public string ImageUrl { get; set; }
     public UserResponse User { get; set; }
-    public string NearestUniversities { get; set; }
+    //  public string NearestUniversities { get; set; }
 }
