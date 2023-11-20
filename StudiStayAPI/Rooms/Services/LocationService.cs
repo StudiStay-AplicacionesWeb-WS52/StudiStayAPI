@@ -35,13 +35,9 @@ public class LocationService : ILocationService
 
     public async Task<LocationApiResponse> SaveAsync(Location location)
     {
-        //valida el userId
-        var existingLocation = await locationRepository.FindByIdAsync(location.LocationId);
-        if (existingLocation == null) return new LocationApiResponse("Invalid Location");
-        
         //valida la dirección que no se repita
-        var existingLocationWithTitle = await locationRepository.FindByTitleAsync(Location.Title);
-        if (existingLocationWithTitle != null) return new LocationApiResponse("Location title already exists.");
+        var existingLocationWithAddress = await locationRepository.FindByAddressAsync(Location.Address);
+        if (existingLocationWithAddress != null) return new LocationApiResponse("Location  already exists.");
         
         try
         {
@@ -64,23 +60,17 @@ public class LocationService : ILocationService
         var existingLocation = await locationRepository.FindByIdAsync(locationId);
         if (existingLocation == null) return new LocationApiResponse("Location not found.");
         
-        //valida si existe el userId
-        var existingUser = await userRepository.FindByIdAsync(location.UserId);
-        if (existingUser == null) return new LocationApiResponse("Invalid User");
-        
-        //valida si el titulo ya existe y no es el mismo location
-        var existingLocationWithTitle = await locationRepository.FindByTitleAsync(location.Title);
-        if (existingLocationWithTitle != null && existingLocationWithTitle.Id != existingLocation.Id) 
-            return new LocationApiResponse("Location title already exists.");
+        //valida si la dirección ya existe y no es el mismo location
+        var existingLocationWithAddress = await locationRepository.FindByAddressAsync(location.Address);
+        if (existingLocationWithAddress != null && existingLocationWithAddress.Id != existingLocation.Id) 
+            return new LocationApiResponse("Location address already exists.");
         
         //modifica el Location
-        existingLocation.Title = location.Title ?? existingLocation.Title;
-        existingPost.Description = post.Description ?? existingPost.Description;
-        existingPost.Price = post.Price;
-        existingPost.Address = post.Address ?? existingPost.Address;
-        existingPost.Rating = post.Rating;
-        existingPost.ImageUrl = post.ImageUrl ?? existingPost.ImageUrl;
-        existingPost.NearestUniversities = post.NearestUniversities ?? existingPost.NearestUniversities;
+        existingLocation.Address = location.Address ?? existingLocation.Address;
+        existingLocation.Country = location.Country ?? existingLocation.Country;
+        existingLocation.City = location.City ?? existingLocation.City;
+        existingLocation.State = Location.State ?? existingLocation.State;
+        existingLocation.ZipCode = Location.ZipCode ?? existingLocation.ZipCode;
 
         try
         {

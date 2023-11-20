@@ -36,9 +36,14 @@ public class PostService : IPostService
         return new PostApiResponse(existingPost);
     }
 
+    public async Task<IEnumerable<Post>> ListByZipCodeAsync(string postZipCode)
+    {
+        return await postRepository.ListByZipCodeAsync(postZipCode);
+    }
+
     public async Task<IEnumerable<Post>> ListByUserIdAsync(int userId)
     {
-        return await postRepository.FindByUserIdAsync(userId);
+        return await postRepository.ListByUserIdAsync(userId);
     }
 
     public async Task<PostApiResponse> SaveAsync(Post post)
@@ -50,6 +55,10 @@ public class PostService : IPostService
         //valida el titulo que no se repita
         var existingPostWithTitle = await postRepository.FindByTitleAsync(post.Title);
         if (existingPostWithTitle != null) return new PostApiResponse("Post title already exists.");
+
+        //valida que exista la locación que se usará para el post
+        var existingPostLocation = await locationRepository.FindByIdAsync(post.LocationId);
+        if (existingPostLocation == null) return new PostApiResponse("Insert a valid location.");
         
         try
         {
@@ -76,6 +85,11 @@ public class PostService : IPostService
         var existingUser = await userRepository.FindByIdAsync(post.UserId);
         if (existingUser == null) return new PostApiResponse("Invalid User");
         
+        //valida si existe el LocationId
+        var existingLocation = await locationRepository.FindByIdAsync(post.LocationId);
+        if (existingLocation == null) return new PostApiResponse("Invalid Location");
+
+
         //valida si el titulo ya existe y no es el mismo post
         var existingPostWithTitle = await postRepository.FindByTitleAsync(post.Title);
         if (existingPostWithTitle != null && existingPostWithTitle.Id != existingPost.Id) 
@@ -85,10 +99,10 @@ public class PostService : IPostService
         existingPost.Title = post.Title ?? existingPost.Title;
         existingPost.Description = post.Description ?? existingPost.Description;
         existingPost.Price = post.Price;
-        existingPost.Address = post.Address ?? existingPost.Address;
-        existingPost.Rating = post.Rating;
+        //existingPost.Address = post.Address ?? existingPost.Address;
+        //existingPost.Rating = post.Rating;
         existingPost.ImageUrl = post.ImageUrl ?? existingPost.ImageUrl;
-        existingPost.NearestUniversities = post.NearestUniversities ?? existingPost.NearestUniversities;
+        //existingPost.NearestUniversities = post.NearestUniversities ?? existingPost.NearestUniversities;
 
         try
         {

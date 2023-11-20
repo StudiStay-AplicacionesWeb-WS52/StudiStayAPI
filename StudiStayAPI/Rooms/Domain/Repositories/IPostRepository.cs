@@ -25,6 +25,13 @@ public interface IPostRepository
     Task<Post> FindByIdAsync(int postId);
     
     /// <summary>
+    /// Encuentra un post por su código ZIP
+    /// </summary>
+    /// <param name="zipCode">Id del post a buscar</param>
+    Task<IEnumerable<Post>> ListByZipCodeAsync(string zipCode);
+
+
+    /// <summary>
     /// Encuentra un post por su titulo
     /// </summary>
     /// <param name="title">Titulo del post a buscar</param>
@@ -34,7 +41,7 @@ public interface IPostRepository
     /// Encuentra un post por el id del usuario
     /// </summary>
     /// <param name="userId">Id del usuario del post a buscar</param>
-    Task<IEnumerable<Post>> FindByUserIdAsync(int userId);
+    Task<IEnumerable<Post>> ListByUserIdAsync(int userId);
     
     /// <summary>
     /// Actualiza un post

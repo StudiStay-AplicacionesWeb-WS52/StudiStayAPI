@@ -14,17 +14,19 @@ public class UpdatePostRequest
     [MaxLength(200)]
     public string? Description { get; set; }
     
-    public string? Address { get; set; }
+    // public string? Address { get; set; }
 
     [Range(3, 1000)]
     public float? Price { get; set; }
     
-    public float? Rating { get; set; }
+    // public float? Rating { get; set; }
     
     public string? ImageUrl { get; set; }
 
     [Required] //temporal (hasta que se implemente la autenticacion)
     public int UserId { get; set; }
     
-    public string? NearestUniversities { get; set; }
+    // public string? NearestUniversities { get; set; }
+
+    public int? LocationId { get; set; }
 }

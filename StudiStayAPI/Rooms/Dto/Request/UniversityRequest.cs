@@ -12,4 +12,7 @@ public class UniversityRequest
     
     [Required]
     public string Initials { get; set; }
+
+    [Required]
+    public int LocationId { get; set; }
 }

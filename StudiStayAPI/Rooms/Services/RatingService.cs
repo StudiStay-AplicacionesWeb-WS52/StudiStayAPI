@@ -21,6 +21,13 @@ public class RatingService : IRatingService
         return await ratingRepository.ListAsync();
     }
 
+    public async Task<IEnumerable<Rating>> ListByRatingListIdAsync(int ratingListId)
+        {
+            return await ratingRepository.FindByRatingListIdAsync(ratingListId);
+        }
+
+    
+
     public async Task<RatingApiResponse> GetByIdAsync(int ratingId)
     {
         var existingRating = await ratingRepository.FindByIdAsync(ratingId);
@@ -28,20 +35,20 @@ public class RatingService : IRatingService
         return new RatingApiResponse(existingRating);
     }
 
-    public async Task<IEnumerable<Rating>> ListByUserIdAsync(int userId)
-    {
-        return await ratingRepository.FindByUserIdAsync(userId);
-    }
 
     public async Task<RatingApiResponse> SaveAsync(Rating rating)
     {
-        //valida el userId
-        var existingRating = await ratingRepository.FindByIdAsync(rating.RatingId);
-        if (existingRating == null) return new RatingApiResponse("Invalid Rating");
+        //valida que el usuario sea real 
+        var existingUser = await userRepository.FindByIdAsync(rating.UserId);
+        if (existingUser == null) return new RatingApiResponse("this user doesn't exist");
+
+        //valida que exista la lista de ratings
+        var existingRatingList = await ratingListRepository.FindByIdAsync(rating.ratingListId);
+        if (existingRatingList == null) return new RatingApiResponse("this post doesn't exist");
         
-        //valida la dirección que no se repita
-        var existingRatingWithTitle = await ratingRepository.FindByTitleAsync(Rating.Title);
-        if (existingRatingWithTitle != null) return new RatingApiResponse("Rating title already exists.");
+        //valida que el usuario y la lista de reseñas no se repitan al mimsmo tiempo
+        var existingRatingWithUserAndRatingList = await ratingRepository.FindByUserIdAndRatingListIdAsync(Rating.UserId,Rating.ratingListId);
+        if (existingRatingWithUserAndRatingList != null) return new RatingApiResponse("The same user cannot post new reviews under the same post");
         
         try
         {
@@ -68,19 +75,17 @@ public class RatingService : IRatingService
         var existingUser = await userRepository.FindByIdAsync(rating.UserId);
         if (existingUser == null) return new RatingApiResponse("Invalid User");
         
-        //valida si el titulo ya existe y no es el mismo Rrating
-        var existingRatingWithTitle = await ratingRepository.FindByTitleAsync(rating.Title);
-        if (existingRatingWithTitle != null && existingRatingWithTitle.Id != existingRating.Id) 
-            return new RatingApiResponse("Rating title already exists.");
+        //valida que exista la lista de ratings
+        var existingRatingList = await ratingListRepository.FindByIdAsync(rating.ratingListId);
+        if (existingRatingList == null) return new RatingApiResponse("this post doesn't exist");
         
+        //valida que el usuario y la lista de reseñas no se repitan al mimsmo tiempo
+        var existingRatingWithUserAndRatingList = await ratingRepository.FindByUserIdAndRatingListIdAsync(Rating.UserId,Rating.ratingListId);
+        if (existingRatingWithUserAndRatingList != null) return new RatingApiResponse("The same user cannot post new reviews under the same post");
+                
         //modifica el Rating
-        existingRating.Title = Rating.Title ?? existingRating.Title;
-        existingPost.Description = post.Description ?? existingPost.Description;
-        existingPost.Price = post.Price;
-        existingPost.Address = post.Address ?? existingPost.Address;
-        existingPost.Rating = post.Rating;
-        existingPost.ImageUrl = post.ImageUrl ?? existingPost.ImageUrl;
-        existingPost.NearestUniversities = post.NearestUniversities ?? existingPost.NearestUniversities;
+        existingRating.Score = Rating.Score ?? existingRating.Score;
+        existingRating.Comment = Rating.Comment ?? existingRating.Comment;
 
         try
         {

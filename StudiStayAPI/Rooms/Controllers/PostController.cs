@@ -44,6 +44,19 @@ public class PostController : ControllerBase
         return Ok(postResponse);
     }
 
+    //endpoint para obtener un post por su código zip
+
+    [HttpGet("zipCode/{zipCode}")]
+    public async Task<IActionResult> GetByZipCodeAsync(string zipCode)
+    {
+        var result = await postService.ListByZipCodeAsync(zipCode);
+
+        if (!result.Any()) return NotFound("No posts found with the specified zip code.");
+
+        var postResponse = mapper.Map<IEnumerable<Post>, IEnumerable<PostResponse>>(result);
+        return Ok(postResponse);
+    }
+    
     //endpoint para crear un post
     [HttpPost]
     public async Task<IActionResult> PostAsync([FromBody] PostRequest request)

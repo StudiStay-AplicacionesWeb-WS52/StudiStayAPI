@@ -28,4 +28,11 @@ public interface IUniversityService
     /// </summary>
     /// <param name="universityId">Id de la universidad a eliminar</param>
     Task<UniversityApiResponse> DeleteAsync(int universityId);
+
+    Task<UniversityApiResponse> GetByIdAsync(int universityId);
+    Task<UniversityApiResponse> GetByNameAsync(string name);
+    Task<IEnumerable<University>> ListByZipCodeAsync(string zipCode);
+
+
+
 }

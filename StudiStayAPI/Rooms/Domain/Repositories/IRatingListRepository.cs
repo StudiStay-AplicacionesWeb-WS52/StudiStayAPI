@@ -21,14 +21,14 @@ public interface IRatingListRepository
     /// <summary>
     /// Encuentra un post por su id
     /// </summary>
-    /// <param name="ratingId">Id de la reseña a buscar</param>
-    Task<Post> FindByIdAsync(int ratingId);
+    /// <param name="ratingListId">Id de la reseña a buscar</param>
+    Task<Post> FindByIdAsync(int ratingListId);
     
     /// <summary>
     /// Encuentra un post por el id del usuario
     /// </summary>
-    /// <param name="ratingListId">Id de la lista de  del post a buscar</param>
-    Task<IEnumerable<Post>> FindByRatingListIdAsync(int ratingListId);
+    /// <param name="postId">Id de la lista de  del post a buscar</param>
+    Task<IEnumerable<Post>> FindByPostIdAsync(int psotId);
 
    
     

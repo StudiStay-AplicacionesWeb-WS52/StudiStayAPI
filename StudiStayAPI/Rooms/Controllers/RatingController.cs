@@ -28,7 +28,7 @@ public class RatingController : ControllerBase{
         return mapper.Map<IEnumerable<Rating>, IEnumerable<RatingResponse>>(ratings);
     }
 
-    //endpoint para obtener un post por id
+    //endpoint para obtener una reseña por id
     [HttpGet("{id}")]
     public async Task<IActionResult> GetAsync(int id)
     {
@@ -40,7 +40,19 @@ public class RatingController : ControllerBase{
         return Ok(ratingResponse);
     }
 
-    //endpoint para crear un post
+    //endpoint para obtener todas las reseñas de un post
+   [HttpGet("ratingList/{ratingListId}")]
+    public async Task<IActionResult> GetByRatingListAsync(int ratingListId)
+    {
+        var result = await ratingService.ListByRatingListIdAsync(ratingListId);
+
+        if (!result.Any()) return NotFound($"No ratings found for rating list with ID {ratingListId}.");
+
+        var ratingResponse = mapper.Map<IEnumerable<Rating>, IEnumerable<RatingResponse>>(result);
+        return Ok(ratingResponse);
+    }
+    
+    //endpoint para crear una reseña post
     [HttpPost]
     public async Task<IActionResult> PostAsync([FromBody] RatingResponse request)
     {

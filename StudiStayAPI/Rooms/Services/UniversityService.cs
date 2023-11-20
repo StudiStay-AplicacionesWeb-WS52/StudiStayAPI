@@ -13,14 +13,32 @@ public class UniversityService : IUniversityService
     private readonly IUnitOfWork unitOfWork;
     
     //inyeccion de dependencias
-    public UniversityService(IUniversityRepository universityRepository, ILocationRepository locationRepository, IUserRepository userRepository, IUnitOfWork unitOfWork)
+    public UniversityService(IUniversityRepository universityRepository, ILocationRepository locationRepository, IUnitOfWork unitOfWork)
     {
         this.universityRepository = universityRepository;
-        this.userRepository = userRepository;
         this.locationRepository = locationRepository;
         this.unitOfWork = unitOfWork;
     }
+
+    public async Task<UniversityApiResponse> GetByIdAsync(int universityId)
+    {
+        var existingU = await universityRepository.FindByIdAsync(universityId);
+        if (existingU == null) return new UniversityApiResponse("University not found.");
+        return new PostApiResponse(existingU);
+    }
     
+    public async Task<UniversityApiResponse> GetByNameAsync(string name)
+    {
+        var existingU = await universityRepository.FindByNameAsync(name);
+        if (existingU == null) return new UniversityApiResponse("University not found.");
+        return new PostApiResponse(existingU);
+    }
+
+    public async Task<IEnumerable<University>> ListByZipCodeAsync(string zipCode){
+        return await universityRepository.ListByZipCodeAsync(string zipCode);
+    }
+
+
     public async Task<IEnumerable<University>> ListAsync()
     {
         return await universityRepository.ListAsync();

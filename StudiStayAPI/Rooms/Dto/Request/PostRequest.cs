@@ -23,7 +23,7 @@ public class PostRequest
     [Range(3, 1000)]
     public float Price { get; set; }
     
-    public float? Rating { get; set; }
+    // public float? Rating { get; set; }
     
     [Required] 
     public string ImageUrl { get; set; }
