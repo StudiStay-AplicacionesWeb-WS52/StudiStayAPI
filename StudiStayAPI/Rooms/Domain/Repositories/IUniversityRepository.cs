@@ -22,6 +22,13 @@ public interface IUniversityRepository
     Task<University> FindByIdAsync(int universityId);
     
     /// <summary>
+    /// Enlista las universidades por su código zip
+    /// </summary>
+    /// <param name="zipCode">Nombre de la universidad a buscar</param>
+    Task<University> ListByZipCodeAsync(string zipCode);
+
+
+    /// <summary>
     /// Encuentra una universidad por su nombre
     /// </summary>
     /// <param name="name">Nombre de la universidad a buscar</param>

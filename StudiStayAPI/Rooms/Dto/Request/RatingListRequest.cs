@@ -8,15 +8,9 @@ namespace StudiStayAPI.Rooms.Domain.Models
     /// </summary>
     public class RatingListRequest
     {
-        public RatingListRequest()
-        {
-            Ratings = new List<RatingRequest>();
-        }
-
+        [Required]
         public int Id { get; set; }
-
-        public IList<RatingRequest> Ratings { get; set; }
-
+        
         [Required]
         public int PostId { get; set; }
     }

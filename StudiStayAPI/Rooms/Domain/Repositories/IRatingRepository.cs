@@ -12,6 +12,8 @@ namespace StudiStayAPI.Rooms.Domain.Repositories
         /// </summary>
         Task<IEnumerable<Rating>> ListAsync();
         
+    
+
         /// <summary>
         /// Agrega un rating
         /// </summary>
@@ -23,12 +25,18 @@ namespace StudiStayAPI.Rooms.Domain.Repositories
         /// </summary>
         /// <param name="ratingId">Id del rating a buscar</param>
         Task<Rating> FindByIdAsync(int ratingId);
+
+        /// <summary>
+        /// Encuentra un rating por el id del usuario y la 
+        /// </summary>
+        /// <param name="userId", name2="ratingListId">Id del rating a buscar</param>
+        Task<Rating> FindByUserIdAndRatingListIdAsync(int userId, int ratingListId);
         
         /// <summary>
         /// Encuentra ratings por el id de la lista de ratings
         /// </summary>
         /// <param name="ratingListId">Id de la lista de ratings</param>
-        Task<IEnumerable<Rating>> FindByRatingListIdAsync(int ratingListId);
+        Task<IEnumerable<Rating>> ListByRatingListIdAsync(int ratingListId);
         
         /// <summary>
         /// Actualiza un rating
