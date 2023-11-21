@@ -17,7 +17,7 @@ public class UniversityController : ControllerBase
     private readonly IUniversityService universityService;
     private readonly IMapper mapper;
 
-    //inyeccion de dependencias
+    //inyeccion de dependencias  
     public UniversityController(IUniversityService universityService, IMapper mapper)
     {
         this.universityService = universityService;
