@@ -21,7 +21,7 @@ public class PostService : IPostService
         this.postRepository = postRepository;
         this.userRepository = userRepository;
         this.unitOfWork = unitOfWork;
-        this.locationRepository = locationRepository
+        this.locationRepository = locationRepository;
     }
     
     public async Task<IEnumerable<Post>> ListAsync()

@@ -5,7 +5,7 @@ namespace StudiStayAPI.Rooms.Dto.Request
     /// <summary>
     /// Esta clase se usa para mapear el request body a un objeto C# (la entidad Location)
     /// </summary>
-    public class LocationRequest
+    public class UpdateLocationRequest
     {
         [Required]
         [MaxLength(255)] // Adjust the maximum length as needed

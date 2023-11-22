@@ -23,11 +23,5 @@ namespace StudiStayAPI.Rooms.Mapping
             // Mappings for Location
             CreateMap<Location, LocationResponse>();
 
-            // Mappings for Rating
-            CreateMap<Rating, RatingResponse>();
-
-            // Mappings for RatingList
-            CreateMap<RatingList, RatingListResponse>();
-        }
     }
 }

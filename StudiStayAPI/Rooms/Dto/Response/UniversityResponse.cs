@@ -1,4 +1,8 @@
-﻿namespace StudiStayAPI.Rooms.Dto.Response;
+﻿using StudiStayAPI.Rooms.Domain.Models;
+using StudiStayAPI.Rooms.Dto.Response;
+using System.Collections.Generic;
+
+namespace StudiStayAPI.Rooms.Dto.Response;
 
 public class UniversityResponse
 {

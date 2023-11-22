@@ -1,19 +1,19 @@
+using StudiStayAPI.Rooms.Domain.Models;
+using StudiStayAPI.Rooms.Dto.Response;
+using System.Collections.Generic;
+
 namespace StudiStayAPI.Rooms.Dto.Response;
 
 /// <summary>
 /// Clase que se usa para mapear el response del API (lo que se devuelve al cliente en formato JSON)
 /// </summary>
 
-public class Location
+public class LocationResponse
 {
 
     public int Id { get; set; }
 
     public string Address { get; set; }
-
-    public double Longitude { get; set; }
-
-    public double Latitude { get; set; }
 
     public string Country { get; set; }
 

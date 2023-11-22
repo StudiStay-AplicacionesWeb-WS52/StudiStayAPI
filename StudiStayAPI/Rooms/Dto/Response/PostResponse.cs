@@ -1,5 +1,8 @@
-﻿using StudiStayAPI.Security.Dto.Response;
+﻿using StudiStayAPI.Rooms.Domain.Models;
+using StudiStayAPI.Rooms.Dto.Response;
 using System.Collections.Generic;
+
+using StudiStayAPI.Security.Dto.Response;
 
 namespace StudiStayAPI.Rooms.Dto.Response
 {

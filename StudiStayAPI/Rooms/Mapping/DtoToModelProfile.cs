@@ -8,7 +8,6 @@ namespace StudiStayAPI.Rooms.Mapping;
 /// Perfil de Automapper para mapear desde un Dto (request) a la entidad correspondiente
 /// </summary>
 public class DtoToModelProfile : Profile
-public class DtoToModelProfile : Profile
 {
     public DtoToModelProfile()
     {
@@ -27,13 +26,5 @@ public class DtoToModelProfile : Profile
         // Mappings for Location
         CreateMap<LocationRequest, Location>();
         CreateMap<UpdateLocationRequest, Location>();
-
-        // Mappings for Rating
-        CreateMap<RatingRequest, Rating>();
-        CreateMap<UpdateRatingRequest, Rating>();
-
-        // Mappings for RatingList
-        CreateMap<RatingListRequest, RatingList>();
-        CreateMap<UpdateRatingListRequest, RatingList>();
     }
 }
