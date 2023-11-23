@@ -88,23 +88,28 @@ public class UserService : IUserService
     public async Task<UserApiResponse> UpdateAsync(int id, UpdateUserRequest model)
     {
         // obtiene el usuario por su id
-        var user = GetById(id);
+        var existingUser = GetById(id);
+        if (existingUser == null) return new UserApiResponse("User not found.");
         
-        // valida que el email no esté registrado
-        if (userRepository.ExistsByEmail(model.Email))
-        {
+        //valida si el email ya existe y no es el mismo user
+        var existingUserWithEmail = userRepository.FindByEmailAsync(model.Email);
+        if (existingUserWithEmail != null && existingUserWithEmail.Id != existingUser.Id) 
             throw new AppException(HttpStatusCode.Conflict, $"Email '{model.Email}' is already taken");
-        }
         
         // mapea el modelo a un objeto User
-        mapper.Map(model, user);
+        mapper.Map(model, existingUser);
+        
+        //modifica el post
+        existingUser.FullName = model.FullName ?? existingUser.FullName;
+        existingUser.Email = model.Email ?? existingUser.Email;
+        existingUser.Phone = model.Phone ?? existingUser.Phone;
         
         // actualiza el usuario
         try
         {
-            userRepository.Update(user);
+            userRepository.Update(existingUser);
             await unitOfWork.CompleteAsync();
-            return new UserApiResponse(user);
+            return new UserApiResponse(existingUser);
         }
         catch (Exception e)
         {
