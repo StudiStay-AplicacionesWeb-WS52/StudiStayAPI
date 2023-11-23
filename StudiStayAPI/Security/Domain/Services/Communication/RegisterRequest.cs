@@ -13,7 +13,6 @@ public class RegisterRequest
     public string Password { get; set; }
     [Required]
     public string Phone { get; set; }
-    [Required]
-    public string Role { get; set; }
+    public string? Role { get; set; }
     public string? ImageUrl { get; set; }
 }

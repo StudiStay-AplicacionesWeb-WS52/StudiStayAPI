@@ -70,6 +70,7 @@ public class UserService : IUserService
         // hashear la contraseña
         user.Password = BCryptNet.HashPassword(model.Password);
         user.ImageUrl = "https://source.unsplash.com/random/500X500?person";
+        user.Role = "USER";
         
         // registra el usuario
         try
