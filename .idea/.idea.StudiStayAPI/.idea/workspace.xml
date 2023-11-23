@@ -10,7 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ad98013-b4a3-496b-a264-9c642c2349b5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.StudiStayAPI/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.StudiStayAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StudiStayAPI/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudiStayAPI/Security/Domain/Services/Communication/RegisterRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudiStayAPI/Security/Domain/Services/Communication/RegisterRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudiStayAPI/Security/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudiStayAPI/Security/Services/UserService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +24,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/UPC _Ing_Soft/VI/Apps-Web/PROYECTO FINAL/StudiStayAPI/StudiStayAPI/Rooms/Mapping/DtoToModelProfile.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/UPC _Ing_Soft/VI/Apps-Web/PROYECTO FINAL/StudiStayAPI/StudiStayAPI/Security/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -38,7 +44,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -47,6 +53,9 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ],
     &quot;rider.external.source.directories&quot;: [
       &quot;C:\\Users\\Jamutaq Ortega\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
       &quot;C:\\Users\\Jamutaq Ortega\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
@@ -141,6 +150,9 @@
       <updated>1700261043402</updated>
       <workItem from="1700261045783" duration="600000" />
       <workItem from="1700597748309" duration="735000" />
+      <workItem from="1700691862630" duration="711000" />
+      <workItem from="1700692691506" duration="2057000" />
+      <workItem from="1700699687685" duration="646000" />
     </task>
     <servers />
   </component>
