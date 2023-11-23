@@ -9,10 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ad98013-b4a3-496b-a264-9c642c2349b5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.StudiStayAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StudiStayAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudiStayAPI/Security/Domain/Services/Communication/LoginResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StudiStayAPI/Security/Domain/Services/Communication/LoginResponse.cs" afterDir="false" />
-    </list>
+    <list default="true" id="2ad98013-b4a3-496b-a264-9c642c2349b5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -152,6 +149,7 @@
       <workItem from="1700692691506" duration="2057000" />
       <workItem from="1700699687685" duration="1238000" />
       <workItem from="1700718077590" duration="1646000" />
+      <workItem from="1700722877100" duration="230000" />
     </task>
     <servers />
   </component>
