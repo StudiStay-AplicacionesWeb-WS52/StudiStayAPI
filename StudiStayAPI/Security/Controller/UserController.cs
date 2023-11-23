@@ -24,7 +24,7 @@ public class UserController : ControllerBase
     
     [AllowAnonymous]
     [HttpPost("sign-in")]
-    public async Task<IActionResult> Login(LoginRequest request)
+    public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
         var response = await userService.LoginAsync(request);
         return Ok(response);
@@ -32,7 +32,7 @@ public class UserController : ControllerBase
 
     [AllowAnonymous]
     [HttpPost("sign-up")]
-    public async Task<IActionResult> Register(RegisterRequest request)
+    public async Task<IActionResult> Register([FromBody] RegisterRequest request)
     {
         await userService.RegisterAsync(request);
         return Ok(new { message = "Registration successful" });
@@ -55,7 +55,7 @@ public class UserController : ControllerBase
     }
     
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(int id, UpdateUserRequest request)
+    public async Task<IActionResult> Update(int id, [FromBody] UpdateUserRequest request)
     {
         await userService.UpdateAsync(id, request);
         return Ok(new { message = "User updated successfully" });
