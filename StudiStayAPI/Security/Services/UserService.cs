@@ -91,10 +91,13 @@ public class UserService : IUserService
         var existingUser = GetById(id);
         if (existingUser == null) return new UserApiResponse("User not found.");
         
-        //valida si el email ya existe y no es el mismo user
-        var existingUserWithEmail = userRepository.FindByEmailAsync(model.Email);
-        if (existingUserWithEmail != null && existingUserWithEmail.Id != existingUser.Id) 
-            throw new AppException(HttpStatusCode.Conflict, $"Email '{model.Email}' is already taken");
+        // si el email proporcionado es diferente al del usuario existente, verifica si ya está en uso
+        if (model.Email != existingUser.Email)
+        {
+            var existingUserWithEmail = await userRepository.FindByEmailAsync(model.Email);
+            if (existingUserWithEmail != null) 
+                throw new AppException(HttpStatusCode.Conflict, $"Email '{model.Email}' is already taken");
+        }
         
         // mapea el modelo a un objeto User
         mapper.Map(model, existingUser);
