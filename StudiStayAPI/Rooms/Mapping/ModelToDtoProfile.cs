@@ -17,5 +17,22 @@ public class ModelToDtoProfile : Profile
         CreateMap<University, UniversityResponse>();
         //mapeo de Entidad a Dto para Reservation
         CreateMap<Reservation, ReservationResponse>();
+        
+        //Mappeo de Entidad de Review y Calification a Dto
+        CreateMap<Review, ReviewResponse>()
+            .AfterMap((src, dest) =>
+            {
+                dest.Date = src.Date;
+                dest.CalificationId = src.CalificationId;
+                dest.PostId = src.PostId;
+            } );
+        
+        CreateMap<Calification, ReviewResponse>() 
+            .AfterMap((src, dest) =>
+            {
+                dest.Valoration = src.Valoration;
+                dest.Comment = src.Comment;
+            } );
+        
     }
 }

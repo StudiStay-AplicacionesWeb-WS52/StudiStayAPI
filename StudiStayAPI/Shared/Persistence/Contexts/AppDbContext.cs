@@ -11,6 +11,8 @@ public class AppDbContext : DbContext
     public DbSet<Post> Posts { get; set; }
     public DbSet<University> Universities { get; set; }
     public DbSet<Reservation> Reservations { get; set; }
+    public DbSet<Review> Reviews { get; set; }
+    public DbSet<Calification> Califications { get; set; }
     
     public AppDbContext(DbContextOptions options) : base(options) {}
     

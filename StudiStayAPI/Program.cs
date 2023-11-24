@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using StudiStayAPI.Rooms.Controllers;
 using StudiStayAPI.Rooms.Domain.Repositories;
 using StudiStayAPI.Rooms.Domain.Services;
+using StudiStayAPI.Rooms.Domain.Services.Communication;
 using StudiStayAPI.Rooms.Services;
 using StudiStayAPI.Security.Domain.Repositories;
 using StudiStayAPI.Security.Domain.Services;
@@ -82,6 +84,10 @@ builder.Services.AddScoped<IUniversityRepository, UniversityRepository>();
 builder.Services.AddScoped<IUniversityService, UniversityService>();
 builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 builder.Services.AddScoped<IReservationService, ReservationService>();
+builder.Services.AddScoped<ICalificationService, CalificationService>();
+builder.Services.AddScoped<ICalificationRepository, CalificationRepository>();
+builder.Services.AddScoped<IReviewService, ReviewService>();
+builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 
 // Security Injection Configuration
 builder.Services.AddScoped<IUserRepository, UserRepository>();
